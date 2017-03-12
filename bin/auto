@@ -1,0 +1,66 @@
+#!/bin/bash
+
+if [ $# != 1 ]; then
+    echo "  Usage: auto <mode>"
+    exit -1
+fi
+
+echo "command: $1"
+
+contents=`ls contents`
+
+if [ $1 == 'generate' ]; then
+
+    # make output directory
+    if [ ! -d "output" ]; then
+        mkdir output
+        mkdir output/tpl
+    fi
+
+    # generate all php file
+    for content in $contents
+    do
+        # sed "s/\*\*\*\*\*\*\*\*/$content/g" templates/gentelella/base.php > output/`basename $content .php`.tpl
+        sed "s/\*\*\*\*\*\*\*\*/$content/g" templates/gentelella/base.php > output/$content
+        echo "generate $content over."
+        
+    done
+
+    # copy all dependents file(js, css, smarty lib) to output directory.
+    if [ -d "dependents" ]; then
+        cp dependents/* output/ -rf
+    fi
+
+    # copy theme templates to output/tpl directory.
+    if [ -d "templates/gentelella" ]; then
+        cp templates/gentelella/* output/tpl/ -rf
+    fi
+
+    # copy smarty setup.php to output/tpl directory.
+    if [ -d "templates/smarty" ]; then
+        cp templates/smarty/* output/tpl/ -rf
+    fi
+
+    # copy common .php file to output directory.
+    if [ -d "common" ]; then
+        cp common/* output/ -rf
+    fi
+
+    # copy contents .php file to output/tpl directory.
+    if [ -d "contents" ]; then
+        cp contents/* output/tpl/ -rf
+    fi
+
+    exit 0
+fi
+
+if [ $1 == 'clean' ]; then
+
+    # rm output directory
+    if [ -d "output" ]; then
+        rm output -rf
+    fi
+
+    echo -e "rm output -rf \n\ndelete over."
+    exit 0
+fi

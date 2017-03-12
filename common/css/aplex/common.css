@@ -1,0 +1,10 @@
+.table th, .table td { 
+	text-align: center; 
+	height:38px;
+    font-size:16px;
+}
+
+input.textCenter{
+    font-size:20px;
+    text-align: center;
+}
