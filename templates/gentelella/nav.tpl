@@ -22,7 +22,7 @@
                   <li><a href="dataAndCalander.php"><i class="fa fa-calendar"></i>Time & Calander</a></li>
                   <li><a href="update.php"><i class="fa fa-undo"></i>Update System</a></li>
                   <li><a href="webconsole.php"><i class="fa fa-terminal"></i>Terminal</a></li>
-                  <li><a href="update.php"><i class="fa fa-lock"></i>Root Passwd</a></li>
+                  <li><a href="plain_page.php"><i class="fa fa-lock"></i>Root Passwd</a></li>
                 </ul>
               </li>
               <li><a><i class="fa fa-legal"></i> HardWare Status <span class="fa fa-chevron-down"></span></a>

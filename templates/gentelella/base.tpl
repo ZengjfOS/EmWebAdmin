@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- Smarty lib -->
   <?php require('tpl/SmartySetup.php'); ?>
+  <!-- /Smarty lib -->
 
   <!-- config -->
   <?php include('config.php'); ?>
@@ -8,7 +10,7 @@
 
   <!-- head -->
   <head>
-  <?php $smarty->display('tpl/head.php'); ?>
+  <?php $smarty->display('tpl/head.tpl'); ?>
 
   <!-- aplex css js file -->
   <?php include('customcss.php'); ?>
@@ -24,7 +26,7 @@
       <div class="main_container">
 
         <!-- left content -->
-        <?php $smarty->display('tpl/nav.php'); ?>
+        <?php $smarty->display('tpl/nav.tpl'); ?>
         <!-- /left content -->
 
         <!-- right content -->
@@ -32,14 +34,14 @@
         <!-- /right content -->
 
         <!-- footer content -->
-        <?php $smarty->display('tpl/foot.php'); ?>
+        <?php $smarty->display('tpl/foot.tpl'); ?>
         <!-- /footer content -->
 
       </div>
     </div>
 
   <!-- JavaScript -->
-  <?php include('tpl/tail.php'); ?>
+  <?php include('tpl/tail.tpl'); ?>
   <?php include('customjs.php'); ?>
   <!-- /JavaScript -->
 	

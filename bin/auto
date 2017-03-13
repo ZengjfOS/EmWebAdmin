@@ -22,8 +22,8 @@ if [ $1 == 'generate' ]; then
     for content in $contents
     do
         # sed "s/\*\*\*\*\*\*\*\*/$content/g" templates/gentelella/base.php > output/`basename $content .php`.tpl
-        sed "s/\*\*\*\*\*\*\*\*/$content/g" templates/gentelella/base.php > output/$content
-        echo "generate $content over."
+        sed "s/\*\*\*\*\*\*\*\*/$content/g" templates/gentelella/base.tpl > output/`basename $content .tpl`.php
+        echo "generate `basename $content .tpl`.php over."
         
     done
 
