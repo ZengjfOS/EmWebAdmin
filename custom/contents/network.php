@@ -16,25 +16,25 @@
               <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-3">IP:</label>
                 <div class="col-md-3 col-sm-9 col-xs-9 ">
-                  <input type="text" class="form-control" style="text-align:center; font-size:16px" data-inputmask="'mask': '(9{1,3}.){3}9{1,3}'" data-validate-length-range="7,15" required="required">
+                  <input type="text" class="form-control" style="text-align:center; font-size:16px" data-inputmask="" data-validate-length-range="7,15" required="required">
                 </div>
               </div>
               <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-3">Mask:</label>
                 <div class="col-md-3 col-sm-9 col-xs-9 ">
-                  <input type="text" class="form-control" style="text-align:center; font-size:16px" data-inputmask="'mask': '(9{1,3}.){3}9{1,3}'"  data-validate-length-range="7,15" required="required">
+                  <input type="text" class="form-control" style="text-align:center; font-size:16px" data-inputmask=""  data-validate-length-range="7,15" required="required">
                 </div>
               </div>
               <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-3"> Boardcast:</label>
                 <div class="col-md-3 col-sm-9 col-xs-9 ">
-                  <input type="text" class="form-control" style="text-align:center; font-size:16px" data-inputmask="'mask': '(9{1,3}.){3}9{1,3}'"  data-validate-length-range="7,15" required="required">
+                  <input type="text" class="form-control" style="text-align:center; font-size:16px" data-inputmask=""  data-validate-length-range="7,15" required="required">
                 </div>
               </div>
               <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-3"> Gateway:</label>
                 <div class="col-md-3 col-sm-9 col-xs-9 ">
-                  <input type="text" class="form-control" style="text-align:center; font-size:16px" data-inputmask="'mask': '(9{1,3}.){3}9{1,3}'"  data-validate-length-range="7,15" required="required">
+                  <input type="text" class="form-control" style="text-align:center; font-size:16px" data-inputmask=""  data-validate-length-range="7,15" required="required">
                 </div>
               </div>
               <div class="form-group">
@@ -51,7 +51,7 @@
             <div class="form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-3"> Ping IP:</label>
               <div class="col-md-5 col-sm-9 col-xs-9 ">
-                <input type="text" class="form-control" style="text-align:center; font-size:16px" data-inputmask="'mask': '(9{1,3}.){3}9{1,3}'">
+                <input type="text" class="form-control" style="text-align:center; font-size:16px" data-inputmask="">
               </div>
               <button type="button" class="col-md-2 col-sm-3 col-xs-3 btn btn-primary">Ping </button>
             </div>

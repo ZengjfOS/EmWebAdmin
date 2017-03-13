@@ -7,13 +7,14 @@ fi
 
 echo "command: $1"
 
-contents=`ls contents`
+contents=`ls custom/contents`
 
 if [ $1 == 'generate' ]; then
 
     # make output directory
     if [ ! -d "output" ]; then
         mkdir output
+        chmod 777 output 
         mkdir output/tpl
     fi
 
@@ -25,6 +26,16 @@ if [ $1 == 'generate' ]; then
         echo "generate $content over."
         
     done
+
+    # copy custom/common .php file to output directory.
+    if [ -d "custom/common" ]; then
+        cp custom/common/* output/ -rf
+    fi
+
+    # copy contents .php file to output/tpl directory.
+    if [ -d "custom/contents" ]; then
+        cp custom/contents/* output/tpl/ -rf
+    fi
 
     # copy all dependents file(js, css, smarty lib) to output directory.
     if [ -d "dependents" ]; then
@@ -41,16 +52,6 @@ if [ $1 == 'generate' ]; then
         cp templates/smarty/* output/tpl/ -rf
     fi
 
-    # copy common .php file to output directory.
-    if [ -d "common" ]; then
-        cp common/* output/ -rf
-    fi
-
-    # copy contents .php file to output/tpl directory.
-    if [ -d "contents" ]; then
-        cp contents/* output/tpl/ -rf
-    fi
-
     exit 0
 fi
 
@@ -58,7 +59,7 @@ if [ $1 == 'clean' ]; then
 
     # rm output directory
     if [ -d "output" ]; then
-        rm output -rf
+        sudo rm output -rf
     fi
 
     echo -e "rm output -rf \n\ndelete over."

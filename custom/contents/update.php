@@ -12,7 +12,7 @@
               <div class="item form-group">
                 <label class="control-label col-md-2 col-sm-3 col-xs-3">FTP IP:</label>
                 <div class="col-md-3 col-sm-9 col-xs-9 ">
-                  <input type="text" class="form-control" style="text-align:center; font-size:16px" data-inputmask="'mask': '(9{1,3}.){3}9{1,3}'"  data-validate-length-range="7,15" required="required">
+                  <input type="text" class="form-control" style="text-align:center; font-size:16px" data-inputmask=""  data-validate-length-range="7,15" required="required">
                 </div>
               </div>
               <div class="item form-group">

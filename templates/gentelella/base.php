@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <?php require('tpl/setup.php'); ?>
+
   <!-- head -->
+  <head>
   <?php $smarty->display('tpl/head.php'); ?>
+
+  <!-- aplex css js file -->
+  <?php include('customcss.php'); ?>
+  </head>
   <!-- /head -->
+
+  <!-- session -->
+  <?php include('session.php'); ?>
+  <!-- /session -->
+  
 
   <body class="nav-md">
     <div class="container body">
@@ -25,7 +36,8 @@
     </div>
 
   <!-- JavaScript -->
-  <?php $smarty->display('tpl/tail.php'); ?>
+  <?php include('tpl/tail.php'); ?>
+  <?php include('customjs.php'); ?>
   <!-- /JavaScript -->
 	
   </body>
