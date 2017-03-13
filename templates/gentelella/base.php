@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <?php require('tpl/setup.php'); ?>
+  <?php require('tpl/SmartySetup.php'); ?>
+
+  <!-- config -->
+  <?php include('config.php'); ?>
+  <!-- /config -->
 
   <!-- head -->
   <head>
@@ -14,7 +18,6 @@
   <!-- session -->
   <?php include('session.php'); ?>
   <!-- /session -->
-  
 
   <body class="nav-md">
     <div class="container body">
