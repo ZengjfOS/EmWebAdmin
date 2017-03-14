@@ -21,7 +21,6 @@ if [ $1 == 'generate' ]; then
     # generate all php file
     for content in $contents
     do
-        # sed "s/\*\*\*\*\*\*\*\*/$content/g" templates/gentelella/base.php > output/`basename $content .php`.tpl
         sed "s/\*\*\*\*\*\*\*\*/$content/g" templates/gentelella/base.tpl > output/`basename $content .tpl`.php
         echo "generate `basename $content .tpl`.php over."
         
@@ -47,9 +46,10 @@ if [ $1 == 'generate' ]; then
         cp templates/gentelella/* output/tpl/ -rf
     fi
 
-    # copy smarty setup.php to output/tpl directory.
+    # copy smarty template config, preprocess file to output/tpl directory.
     if [ -d "templates/smarty" ]; then
-        cp templates/smarty/* output/tpl/ -rf
+        cp templates/smarty/preprocess/* output/tpl/ -rf
+        cp templates/smarty/config output/ -rf
     fi
 
     exit 0

@@ -58,13 +58,14 @@
 ├── README.md
 └── templates                       # 本websit依赖gentelella UI框架，并使用smarty作为template解析库
     ├── gentelella
-    │   ├── base.php                # 基板
-    │   ├── foot.php                
-    │   ├── head.php
-    │   ├── nav.php
-    │   └── tail.php
+    │   ├── base.tpl                # 基板
+    │   ├── foot.tpl
+    │   ├── head.tpl
+    │   ├── nav.tpl
+    │   └── tail.tpl
     └── smarty
-        └── SmartySetup.php         # smarty setup file
+        ├── config                  # template模板
+        └── preprocess              # template预处理
 
-24 directories, 128 files
+45 directories, 265 files
 ```

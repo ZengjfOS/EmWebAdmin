@@ -4,10 +4,6 @@
   <?php require('tpl/SmartySetup.php'); ?>
   <!-- /Smarty lib -->
 
-  <!-- config -->
-  <?php include('config.php'); ?>
-  <!-- /config -->
-
   <!-- head -->
   <head>
   <?php $smarty->display('tpl/head.tpl'); ?>

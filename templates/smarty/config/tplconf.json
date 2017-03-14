@@ -1,0 +1,77 @@
+{
+    "appName": "WebAdmin",
+    "nav": {
+        "Dashboard": {
+            "link": "index.php",
+            "icon": "dashboard"
+        },
+        "Home": {
+            "icon": "home",
+            "subitem": {
+                "Dashboard": {
+                    "link": "index.php",
+                    "icon": "dashboard"
+                },
+                "System Settings": {
+                    "icon": "cogs",
+                    "subitem": {
+                        "Network": {
+                            "link": "sysSettings.php",
+                            "icon": "sitemap"
+                        },
+                        "Time & Calander": {
+                            "link": "sysSettings.php#TimeAndCalander",
+                            "icon": "calendar"
+                        },
+                        "Update System": {
+                            "link": "sysSettings.php#UpdateSystem",
+                            "icon": "undo"
+                        },
+                        "Root Passwd": {
+                            "link": "sysSettings.php#RootPasswd",
+                            "icon": "lock"
+                        }
+                    }
+                },
+                "HardWare Status": {
+                    "icon": "legal",
+                    "subitem": {
+                        "Input&OutPut": {
+                            "link": "hardware.php",
+                            "icon": "arrows-h"
+                        },
+                        "Serial(tty)": {
+                            "link": "hardware.php#Serial",
+                            "icon": "tty"
+                        },
+                        "USB Port": {
+                            "link": "hardware.php#USBPort",
+                            "icon": "usb"
+                        }
+                    }
+                },
+                "Customer Settings": {
+                    "link": "customerSettings.php",
+                    "icon": "wrench"
+                },
+                "Customer Data": {
+                    "link": "customerData.php",
+                    "icon": "pie-chart"
+                },
+                "Terminal": {
+                    "link": "webconsole.php",
+                    "icon": "terminal"
+                }
+            }
+        },
+        "About": {
+            "icon": "book",
+            "subitem": {
+                "WebAdmin": {
+                    "link": "about.php",
+                    "icon": "copyright"
+                }
+            }
+        }
+    }
+}
