@@ -106,7 +106,7 @@ $smarty->assign("recursiveNav", recursiveNav($tplconf['nav'], $level, $active, $
 // <link href="css/custom.min.css" rel="stylesheet">
 Function additionalCSS($sysJsonData, $cusJsonData)
 {
-    $ret = "zengjfcss";
+    $ret = "";
 
     if( isset( $sysJsonData["css"] ) ) {
         foreach( $sysJsonData["css"] as $value ) {
@@ -128,7 +128,7 @@ $smarty->assign("additionalCSS", additionalCSS($sysconf));
 
 Function additionalJS($sysJsonData, $cusJsonData)
 {
-    $ret = "zengjfjs";
+    $ret = "";
 
     if( isset( $sysJsonData["js"] ) ) {
         foreach( $sysJsonData["js"] as $value ) {
