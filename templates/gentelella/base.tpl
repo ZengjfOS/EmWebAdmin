@@ -7,15 +7,8 @@
   <!-- head -->
   <head>
   <?php $smarty->display('tpl/head.tpl'); ?>
-
-  <!-- aplex css js file -->
-  <?php include('customcss.php'); ?>
   </head>
   <!-- /head -->
-
-  <!-- session -->
-  <?php include('session.php'); ?>
-  <!-- /session -->
 
   <body class="nav-md">
     <div class="container body">
@@ -37,8 +30,7 @@
     </div>
 
   <!-- JavaScript -->
-  <?php include('tpl/tail.tpl'); ?>
-  <?php include('customjs.php'); ?>
+  <?php $smarty->display('tpl/tail.tpl'); ?>
   <!-- /JavaScript -->
 	
   </body>

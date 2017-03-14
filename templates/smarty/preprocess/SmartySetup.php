@@ -1,4 +1,13 @@
 <?php
+
+    // check session 
+    session_start();
+    $login_user = $_SESSION['login_user'];
+    if ($login_user != 'root') {
+        header("Location: login.php"); 
+        return;
+    }
+
     // NOTE: Smarty has a capital 'S'
     require_once('smarty/Smarty.class.php');
     $smarty = new Smarty();
@@ -17,4 +26,5 @@
     $smarty->assign('cusconf', $cusconf);
 
     include "tpl/tplFuncs.php";
+
 ?>

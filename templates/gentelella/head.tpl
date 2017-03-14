@@ -29,4 +29,4 @@
 <!-- Custom Theme Style -->
 <link href="css/custom.min.css" rel="stylesheet">
 
-
+{$additionalCSS}

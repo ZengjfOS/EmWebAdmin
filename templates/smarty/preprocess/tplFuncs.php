@@ -1,52 +1,12 @@
 <?php
 
-/*
-  <!--
-  <li><a href="index.php"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-    <ul class="nav child_menu">
-      <li><a href="index.php"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-      <li><a><i class="fa fa-cogs"></i> System Settings <span class="fa fa-chevron-down"></span></a>
-        <ul class="nav child_menu">
-          <li><a href="network.php"><i class="fa fa-sitemap"></i>Network</a></li>
-          <li><a href="dataAndCalander.php"><i class="fa fa-calendar"></i>Time & Calander</a></li>
-          <li><a href="update.php"><i class="fa fa-undo"></i>Update System</a></li>
-          <li><a href="webconsole.php"><i class="fa fa-terminal"></i>Terminal</a></li>
-          <li><a href="plain_page.php"><i class="fa fa-lock"></i>Root Passwd</a></li>
-        </ul>
-      </li>
-      <li><a><i class="fa fa-legal"></i> HardWare Status <span class="fa fa-chevron-down"></span></a>
-        <ul class="nav child_menu">
-          <li><a href="hardware.php"><i class="fa fa-arrows-h"></i>Input&Output</a></li>
-          <li><a href="hardware.php#Serial"><i class="fa fa-tty"></i>Serial(tty)</a></li>
-          <li><a href="hardware.php#USBPort"><i class="fa fa-usb"></i>USB Port</a></li>
-        </ul>
-      </li>
-      <li><a href="customerSettings.php"><i class="fa fa-wrench"></i>Customer Settings</a></li>
-      <li><a href="customerData.php"><i class="fa fa-pie-chart"></i>Customer Data</a></li>
-    </ul>
-  </li>
-  <li><a><i class="fa fa-book"></i> About <span class="fa fa-chevron-down"></span></a>
-    <ul class="nav child_menu">
-      <li><a href="about.php"><i class="fa fa-copyright"></i>WebAdmin</a></li>
-    </ul>
-  </li>
-  -->
-*/
 // $tplconf = json_decode(file_get_contents("config/tplconf.json"), true);
+// $sysconf = json_decode(file_get_contents("config/sysconf.json"), true);
+// $cusconf = json_decode(file_get_contents("config/cusconf.json"), true);
 
-$level = 1;
-$active = "Home";
-$currentPage = "index.php";
-
-Function generateNav($tplconf) 
-{
-    global $tplconf, $level, $active, $currentPage;
-
-    return recursiveNav($tplconf['nav'], $level, $active, $currentPage);
-}
-$smarty->assign('generateNav', generateNav($tplconf));
-
+/**
+ * @level: indent level
+ */
 Function fillBlank($level)
 {
     $ret = "";
@@ -60,6 +20,50 @@ Function fillBlank($level)
 }
 $smarty->assign('fillBlank', fillBlank($level));
 
+/**
+ *  <!--
+ *  <li><a href="index.php"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+ *  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+ *    <ul class="nav child_menu">
+ *      <li><a href="index.php"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+ *      <li><a><i class="fa fa-cogs"></i> System Settings <span class="fa fa-chevron-down"></span></a>
+ *        <ul class="nav child_menu">
+ *          <li><a href="network.php"><i class="fa fa-sitemap"></i>Network</a></li>
+ *          <li><a href="dataAndCalander.php"><i class="fa fa-calendar"></i>Time & Calander</a></li>
+ *          <li><a href="update.php"><i class="fa fa-undo"></i>Update System</a></li>
+ *          <li><a href="webconsole.php"><i class="fa fa-terminal"></i>Terminal</a></li>
+ *          <li><a href="plain_page.php"><i class="fa fa-lock"></i>Root Passwd</a></li>
+ *        </ul>
+ *      </li>
+ *      <li><a><i class="fa fa-legal"></i> HardWare Status <span class="fa fa-chevron-down"></span></a>
+ *        <ul class="nav child_menu">
+ *          <li><a href="hardware.php"><i class="fa fa-arrows-h"></i>Input&Output</a></li>
+ *          <li><a href="hardware.php#Serial"><i class="fa fa-tty"></i>Serial(tty)</a></li>
+ *          <li><a href="hardware.php#USBPort"><i class="fa fa-usb"></i>USB Port</a></li>
+ *        </ul>
+ *      </li>
+ *      <li><a href="customerSettings.php"><i class="fa fa-wrench"></i>Customer Settings</a></li>
+ *      <li><a href="customerData.php"><i class="fa fa-pie-chart"></i>Customer Data</a></li>
+ *    </ul>
+ *  </li>
+ *  <li><a><i class="fa fa-book"></i> About <span class="fa fa-chevron-down"></span></a>
+ *    <ul class="nav child_menu">
+ *      <li><a href="about.php"><i class="fa fa-copyright"></i>WebAdmin</a></li>
+ *    </ul>
+ *  </li>
+ *  -->
+ */
+
+$level = 1;
+$active = "Home";
+$currentPage = end(explode('/', $_SERVER['PHP_SELF']));
+
+/**
+ * @jsonData: nav data as JSON data format
+ * @level: indent level
+ * @active: Classify for php file
+ * @currentPage: current php file
+ */
 Function recursiveNav($jsonData, $level, $active, $currentPage)
 {
     $ret = "";
@@ -97,6 +101,51 @@ Function recursiveNav($jsonData, $level, $active, $currentPage)
 
     return $ret;
 }
-$smarty->assign("recursiveNav", recursiveNav($jsonData, $level, $active, $currentPage))
+$smarty->assign("recursiveNav", recursiveNav($tplconf['nav'], $level, $active, $currentPage));
+
+// <link href="css/custom.min.css" rel="stylesheet">
+Function additionalCSS($sysJsonData, $cusJsonData)
+{
+    $ret = "zengjfcss";
+
+    if( isset( $sysJsonData["css"] ) ) {
+        foreach( $sysJsonData["css"] as $value ) {
+            $ret .= '<link href="'.$value.'" rel="stylesheet">'."\n";
+        }
+    }
+
+    if( isset( $cusJsonData["css"] ) ) {
+        foreach( $cusJsonData["css"] as $value ) {
+            $ret .= '<link href="'.$value.'" rel="stylesheet">'."\n";
+        }
+    }
+
+    echo $ret;
+
+    return $ret;
+}
+$smarty->assign("additionalCSS", additionalCSS($sysconf));
+
+Function additionalJS($sysJsonData, $cusJsonData)
+{
+    $ret = "zengjfjs";
+
+    if( isset( $sysJsonData["js"] ) ) {
+        foreach( $sysJsonData["js"] as $value ) {
+            $ret .= '<script src="'.$value.'"></script>'."\n";
+        }
+    }
+
+    if( isset( $cusJsonData["js"] ) ) {
+        foreach( $cusJsonData["js"] as $value ) {
+            $ret .= '<script src="'.$value.'"></script>'."\n";
+        }
+    }
+
+    echo $ret;
+
+    return $ret;
+}
+$smarty->assign("additionalJS", additionalJS($sysconf, $cusconf));
 
 ?>

@@ -49,3 +49,5 @@
 <script src="js/datedropper.min.js"></script>
 <!-- timedropper -->
 <script src="js/timedropper.min.js"></script>
+
+{$additionalJS}

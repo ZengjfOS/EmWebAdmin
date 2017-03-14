@@ -1,3 +1,11 @@
 {
-    "appName": "WebAdmin"
+    "appName": "WebAdmin",
+    "css": [
+        "css/aplex/common.css"
+    ],
+    "js": [
+        "js/aplex/common.js",
+        "js/aplex/login.js",
+        "js/aplex/soc.js"
+    ]
 }
