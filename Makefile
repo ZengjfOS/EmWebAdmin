@@ -1,8 +1,8 @@
 all:
-	@chmod +x bin/auto
-	@bin/auto generate
+	@chmod +x templates/bin/emWebAdmin
+	@templates/bin/emWebAdmin generate
 	
 clean:
-	@chmod +x bin/auto
-	@bin/auto clean
+	@chmod +x templates/bin/emWebAdmin
+	@templates/bin/emWebAdmin clean
 

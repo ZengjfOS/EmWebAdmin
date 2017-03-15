@@ -37,8 +37,8 @@ if [ $1 == 'generate' ]; then
     fi
 
     # copy all dependents file(js, css, smarty lib) to output directory.
-    if [ -d "dependents" ]; then
-        cp dependents/* output/ -rf
+    if [ -d "templates/dependents" ]; then
+        cp templates/dependents/* output/ -rf
     fi
 
     # copy theme templates to output/tpl directory.
